@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>🏠 Hostel FAQ Chatbot</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: linear-gradient(135deg, #4e73df, #1cc88a);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    #chat-container {
+      width: 90%;
+      max-width: 700px;
+      background: #ffffff;
+      border-radius: 14px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      animation: fadeIn 0.7s ease-out;
+    }
+
+    #header {
+      background: #4e73df;
+      color: #fff;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    #header .avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      color: #4e73df;
+    }
+
+    #header-text h2 {
+      margin: 0;
+      font-size: 20px;
+    }
+
+    #header-text p {
+      margin: 2px 0 0 0;
+      font-size: 12px;
+      opacity: 0.9;
+    }
+
+    #messages {
+      height: 420px;
+      overflow-y: auto;
+      padding: 16px;
+      background: #f7f9fc;
+    }
+
+    .msg {
+      margin: 8px 0;
+      max-width: 80%;
+      padding: 8px 12px;
+      border-radius: 12px;
+      line-height: 1.3;
+      animation: slideUp 0.2s ease-out;
+    }
+
+    .user {
+      margin-left: auto;
+      background: #1cc88a;
+      color: #fff;
+      border-bottom-right-radius: 2px;
+    }
+
+    .bot {
+      margin-right: auto;
+      background: #e2e6f0;
+      color: #333;
+      border-bottom-left-radius: 2px;
+    }
+
+    .meta {
+      font-size: 11px;
+      color: #999;
+      margin-top: 2px;
+    }
+
+    #input-row {
+      display: flex;
+      padding: 10px 12px;
+      border-top: 1px solid #e2e6f0;
+      gap: 8px;
+      background: #fff;
+    }
+
+    #user-input {
+      flex: 1;
+      padding: 10px;
+      border-radius: 999px;
+      border: 1px solid #ced4da;
+      outline: none;
+      font-size: 14px;
+      transition: box-shadow 0.2s, border-color 0.2s;
+    }
+
+    #user-input:focus {
+      border-color: #4e73df;
+      box-shadow: 0 0 0 2px rgba(78,115,223,0.25);
+    }
+
+    #send-btn {
+      border: none;
+      border-radius: 999px;
+      padding: 0 18px;
+      background: #4e73df;
+      color: #fff;
+      cursor: pointer;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    #send-btn:hover {
+      background: #3651b5;
+    }
+
+    #send-btn:active {
+      transform: scale(0.96);
+    }
+
+    #suggestions {
+      padding: 0 16px 6px 16px;
+      font-size: 12px;
+      color: #6c757d;
+    }
+
+    .chip {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #e9ecef;
+      margin: 3px 4px 0 0;
+      cursor: pointer;
+      font-size: 11px;
+    }
+
+    .chip:hover {
+      background: #d6d8db;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(6px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div id="chat-container">
+    <div id="header">
+      <div class="avatar">🏠</div>
+      <div id="header-text">
+        <h2>Hostel FAQ Bot</h2>
+        <p>Ask about timings, mess, rules, rooms & more ✨</p>
+      </div>
+    </div>
+
+    <div id="messages"></div>
+
+    <div id="suggestions">
+      Quick questions:
+      <span class="chip">What are hostel timings?</span>
+      <span class="chip">What are the hostel fees?</span>
+      <span class="chip">Is Wi‑Fi available?</span>
+      <span class="chip">What are the mess timings?</span>
+    </div>
+
+    <div id="input-row">
+      <input id="user-input" type="text"
+             placeholder="Type your question here..." />
+      <button id="send-btn">
+        Send <span>ᯓ➤</span>
+      </button>
+    </div>
+  </div>
+
+  <script src="/static/main.js"></script>
+</body>
+</html>
